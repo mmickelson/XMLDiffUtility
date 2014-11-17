@@ -28,9 +28,6 @@ package com.theflexguy
 			mediatorMap.mapView(OpenXmlDocumentButton, OpenXmlDocumentButtonMediator);
 			mediatorMap.mapView(XmlTreeList, XmlTreeListMediator);
 			mediatorMap.mapView(AttributeGrid, AttributeGridMediator);
-			
-			// commands
-//			commandMap.mapEvent(DocumentEvent.XML_FILE_LOADED, DeserializeXmlFileCommand, DocumentEvent);
 		}
 	}
 }

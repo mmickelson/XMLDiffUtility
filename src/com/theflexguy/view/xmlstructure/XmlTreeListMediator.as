@@ -2,7 +2,6 @@ package com.theflexguy.view.xmlstructure
 {
 	import com.theflexguy.controller.events.DocumentEvent;
 	import com.theflexguy.controller.events.InteractionEvent;
-	import com.theflexguy.xmlmodel.XmlDocument;
 	import com.theflexguy.xmlmodel.XmlDocuments;
 	
 	import flash.events.Event;

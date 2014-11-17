@@ -22,11 +22,9 @@ package com.theflexguy.view.attributes
 		override public function onRegister():void {
 			addContextListener(InteractionEvent.ELEMENT_CHANGE, onElementChange, InteractionEvent);
 			(viewComponent as AttributeGrid).dataProvider = attributeData;
-			trace("AttributeGridMediator.onRegister> ");
 		}
 		
 		protected function onElementChange(event:InteractionEvent):void {
-			trace("AttributeGridMediator.onElementChange> ");
 			if(event.fileNum == 1) {
 				_element1 = event.element;
 			} else {

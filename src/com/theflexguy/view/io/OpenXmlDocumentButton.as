@@ -50,10 +50,8 @@ package com.theflexguy.view.io
 		protected function openButtonClickHandler(event:MouseEvent):void {
 			_fileToOpen = new File();
 			var txtFilter:FileFilter = new FileFilter("XML", "*.xml");
-			trace("OpenXmlDocumentButton.openButtonClickHandler> ");
 			try 
 			{
-				trace("OpenXmlDocumentButton.openButtonClickHandler> opening dialog");
 				_fileToOpen.browseForOpen("Open", [txtFilter]);
 				_fileToOpen.addEventListener(Event.SELECT, fileSelected);
 			}
@@ -65,12 +63,10 @@ package com.theflexguy.view.io
 		
 		protected function fileSelected(event:Event):void 
 		{
-			trace("OpenXmlDocumentButton.fileSelected> ");
 			var fs:FileStream = new FileStream();
 			fs.open(event.target as File, FileMode.READ);
 			var xml:XML = XML(fs.readUTFBytes(fs.bytesAvailable));
 			fs.close();
-			trace("OpenXmlDocumentButton.fileSelected> " + xml.toXMLString());
 			dispatchEvent(new DocumentEvent(DocumentEvent.XML_FILE_LOADED, _fileToOpen, xml, fileNum));
 		}
 	}
