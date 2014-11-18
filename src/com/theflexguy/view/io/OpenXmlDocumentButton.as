@@ -5,10 +5,8 @@ package com.theflexguy.view.io
 	
 	import flash.events.Event;
 	import flash.events.MouseEvent;
-	import flash.filesystem.File;
-	import flash.filesystem.FileMode;
-	import flash.filesystem.FileStream;
 	import flash.net.FileFilter;
+	import flash.net.FileReference;
 	
 	import spark.components.Button;
 	import spark.components.supportClasses.SkinnableComponent;
@@ -22,7 +20,10 @@ package com.theflexguy.view.io
 		
 		public var fileNum:int;
 		
-		private var _fileToOpen:File;
+		[Bindable]
+		public var fileName:String = "";
+		
+		public var userFile:FileReference;
 		
 		public function OpenXmlDocumentButton()
 		{
@@ -48,12 +49,12 @@ package com.theflexguy.view.io
 		}
 		
 		protected function openButtonClickHandler(event:MouseEvent):void {
-			_fileToOpen = new File();
+			userFile = new FileReference();
 			var txtFilter:FileFilter = new FileFilter("XML", "*.xml");
 			try 
 			{
-				_fileToOpen.browseForOpen("Open", [txtFilter]);
-				_fileToOpen.addEventListener(Event.SELECT, fileSelected);
+				userFile.browse([txtFilter]);
+				userFile.addEventListener(Event.SELECT, fileSelected);
 			}
 			catch (error:Error)
 			{
@@ -63,11 +64,15 @@ package com.theflexguy.view.io
 		
 		protected function fileSelected(event:Event):void 
 		{
-			var fs:FileStream = new FileStream();
-			fs.open(event.target as File, FileMode.READ);
-			var xml:XML = XML(fs.readUTFBytes(fs.bytesAvailable));
-			fs.close();
-			dispatchEvent(new DocumentEvent(DocumentEvent.XML_FILE_LOADED, _fileToOpen, xml, fileNum));
+			userFile.removeEventListener(Event.SELECT, fileSelected);
+			userFile.addEventListener(Event.COMPLETE, loadCompleteHandler);
+			userFile.load();
+		}
+			
+		protected function loadCompleteHandler(event:Event):void {
+			var xml:XML = XML(userFile.data);
+			fileName = userFile.name;
+			dispatchEvent(new DocumentEvent(DocumentEvent.XML_FILE_LOADED, userFile, xml, fileNum));
 		}
 	}
 }

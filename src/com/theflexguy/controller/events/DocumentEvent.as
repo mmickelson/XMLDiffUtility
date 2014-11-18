@@ -1,7 +1,7 @@
 package com.theflexguy.controller.events
 {
 	import flash.events.Event;
-	import flash.filesystem.File;
+	import flash.net.FileReference;
 	
 	public class DocumentEvent extends Event
 	{
@@ -10,12 +10,12 @@ package com.theflexguy.controller.events
 		public static const XML_FILE_DESERIALIZED:String = "com.theflexguy.controller.events.DocumentEvent.XML_FILE_DESERIALIZED";
 		
 		
-		public var xmlFile:File;
+		public var xmlFile:FileReference;
 		public var xml:XML;
 		public var fileNum:int;
 		
 
-		public function DocumentEvent(type:String, xmlFile:File, xml:XML, fileNum:int = 0) {
+		public function DocumentEvent(type:String, xmlFile:FileReference, xml:XML, fileNum:int = 0) {
 			this.xmlFile = xmlFile;
 			this.xml = xml;
 			this.fileNum = fileNum;

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Application xmlns:fx="http://ns.adobe.com/mxml/2009" 
+			   xmlns:s="library://ns.adobe.com/flex/spark" 
+			   xmlns:mx="library://ns.adobe.com/flex/mx"
+			   xmlns:theflexguy="com.theflexguy.*"
+			   xmlns:view="com.theflexguy.view.*"
+			   minWidth="955" minHeight="600">
+	<fx:Script>
+		<![CDATA[
+			import com.theflexguy.view.MainWorkspaceSkin;
+			[Bindable]
+			private var helpText:String = "Open an xml file and select a node to view it's attributes. " +
+				"Matching attribute names will be put in a row for comparison between the files.";
+		]]>
+	</fx:Script>
+	<fx:Declarations>
+		<theflexguy:ApplicationContext contextView="{this}"/>
+	</fx:Declarations>
+	<s:VGroup width="100%" height="100%" paddingBottom="10" paddingLeft="10" paddingRight="10" paddingTop="10">
+		<s:Label text="XML Attribute Diff Utility" fontSize="30" fontWeight="bold"/>
+		<s:Label text="{helpText}"/>
+		<view:MainWorkspace width="100%" height="100%" skinClass="com.theflexguy.view.MainWorkspaceSkin"/>
+	</s:VGroup>
+</s:Application>

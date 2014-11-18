@@ -1,5 +1,7 @@
 package com.theflexguy
 {
+	import com.theflexguy.view.MainWorkspace;
+	import com.theflexguy.view.MainWorkspaceMediator;
 	import com.theflexguy.view.attributes.AttributeGrid;
 	import com.theflexguy.view.attributes.AttributeGridMediator;
 	import com.theflexguy.view.io.OpenXmlDocumentButton;
@@ -25,6 +27,7 @@ package com.theflexguy
 			injector.mapSingleton(XmlDocuments);
 			
 			// mediators
+			mediatorMap.mapView(MainWorkspace, MainWorkspaceMediator);
 			mediatorMap.mapView(OpenXmlDocumentButton, OpenXmlDocumentButtonMediator);
 			mediatorMap.mapView(XmlTreeList, XmlTreeListMediator);
 			mediatorMap.mapView(AttributeGrid, AttributeGridMediator);

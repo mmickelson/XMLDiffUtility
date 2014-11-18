@@ -2,7 +2,6 @@ package com.theflexguy.view.xmlstructure
 {
 	import com.theflexguy.controller.events.DocumentEvent;
 	import com.theflexguy.controller.events.InteractionEvent;
-	import com.theflexguy.xmlmodel.XmlDocuments;
 	
 	import flash.events.Event;
 	
@@ -12,10 +11,7 @@ package com.theflexguy.view.xmlstructure
 	import org.robotlegs.mvcs.Mediator;
 	
 	public class XmlTreeListMediator extends Mediator
-	{
-		[Inject]
-		public var documents:XmlDocuments;
-		
+	{		
 		public function XmlTreeListMediator()
 		{
 			super();

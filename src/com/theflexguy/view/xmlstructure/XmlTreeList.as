@@ -1,6 +1,10 @@
 package com.theflexguy.view.xmlstructure
 {
+	import flash.display.DisplayObject;
+	
 	import mx.controls.Tree;
+	
+	import spark.components.Group;
 	
 	public class XmlTreeList extends Tree
 	{
@@ -19,5 +23,11 @@ package com.theflexguy.view.xmlstructure
 				return "-undefined";
 			}
 		}
+//		
+//		override protected function measure():void {
+//			super.measure();
+//			this.height += 100;
+//		}
+		
 	}
 }

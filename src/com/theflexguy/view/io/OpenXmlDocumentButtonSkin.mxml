@@ -10,5 +10,5 @@
 	<!-- SkinParts
 	name=openButton, type=spark.components.Button, required=false
 	-->
-	<s:Button id="openButton" label="open"/>
+	<s:Button id="openButton" label="Open XML file"/>
 </s:Skin>
